@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Notes (MySQL)</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .note-card { background: white; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+        input, textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { padding: 10px; background: #333; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Notes API (MySQL)</h2>
+    
+    <div>
+        <input type="text" id="noteTitle" placeholder="Title">
+        <textarea id="noteContent" placeholder="Content"></textarea>
+        <button onclick="saveNote()">Add Note</button>
+    </div>
+
+    <div id="notesContainer"></div>
+
+    <script>
+        const API = '/notes';
+
+        function getNotes() {
+            fetch(API).then(r => r.json()).then(data => {
+                const container = document.getElementById('notesContainer');
+                container.innerHTML = '';
+                data.forEach(n => {
+                    container.innerHTML += `
+                        <div class="note-card">
+                            <strong>${n.title}</strong>
+                            <p>${n.content}</p>
+                        </div>`;
+                });
+            });
+        }
+
+        function saveNote() {
+            const title = document.getElementById('noteTitle').value;
+            const content = document.getElementById('noteContent').value;
+            fetch(API, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ title, content })
+            }).then(() => {
+                document.getElementById('noteTitle').value = '';
+                document.getElementById('noteContent').value = '';
+                getNotes();
+            });
+        }
+
+        getNotes();
+    </script>
+</body>
+</html>

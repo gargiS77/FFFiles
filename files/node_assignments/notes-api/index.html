@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Notes</title>
+    <style>
+        body { font-family: monospace; padding: 20px; }
+        .note { border: 1px solid #555; padding: 10px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Notes File API</h2>
+    <input type="text" id="txt" placeholder="Note...">
+    <button onclick="add()">Save Note</button>
+    <div id="list"></div>
+
+    <script>
+        const API = '/notes';
+        function load() {
+            fetch(API).then(r => r.json()).then(data => {
+                const l = document.getElementById('list');
+                l.innerHTML = '';
+                data.forEach((n, i) => {
+                    l.innerHTML += `<div class="note">${n.title || n} <button onclick="del(${i})">X</button></div>`;
+                });
+            });
+        }
+        function add() {
+            const title = document.getElementById('txt').value;
+            fetch(API, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({title}) }).then(() => load());
+        }
+        function del(i) {
+            fetch(API + '/' + i, { method: 'DELETE' }).then(() => load());
+        }
+        load();
+    </script>
+</body>
+</html>

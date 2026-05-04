@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #444;
+    }
+    h2 {
+      color: white;
+      text-align: center;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 15px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .box {
+      position: relative;
+      overflow: hidden;
+      border: 3px solid white;
+    }
+    .box img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .box:hover img {
+      transform: scale(1.1);
+    }
+    
+    /* Overlay effect using ::after and data attribute */
+    .box::after {
+      content: attr(data-caption);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.4s;
+    }
+    .box:hover::after {
+      transform: translateY(0);
+    }
+
+    /* Simple responsive grid */
+    @media screen and (max-width: 600px) {
+      .gallery {
+        grid-template-columns: auto auto;
+      }
+    }
+    @media screen and (max-width: 400px) {
+      .gallery {
+        grid-template-columns: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h2>My Simple Gallery</h2>
+
+<div class="gallery">
+  <div class="box" data-caption="Nature View 1">
+    <img src="https://via.placeholder.com/250" alt="Nature 1">
+  </div>
+  <div class="box" data-caption="Nature View 2">
+    <img src="https://via.placeholder.com/250" alt="Nature 2">
+  </div>
+  <div class="box" data-caption="Nature View 3">
+    <img src="https://via.placeholder.com/250" alt="Nature 3">
+  </div>
+  <div class="box" data-caption="Nature View 4">
+    <img src="https://via.placeholder.com/250" alt="Nature 4">
+  </div>
+  <div class="box" data-caption="Nature View 5">
+    <img src="https://via.placeholder.com/250" alt="Nature 5">
+  </div>
+  <div class="box" data-caption="Nature View 6">
+    <img src="https://via.placeholder.com/250" alt="Nature 6">
+  </div>
+</div>
+
+</body>
+</html>

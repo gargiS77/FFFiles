@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Manager</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        form { background: #eef; padding: 15px; margin-bottom: 20px; }
+        input { display: block; width: 100%; margin-bottom: 10px; padding: 5px; }
+        .contact { border: 1px solid #ccc; padding: 10px; margin-bottom: 5px; position: relative; }
+        .del { position: absolute; right: 10px; top: 10px; color: red; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Contacts API</h1>
+    <form id="f">
+        <input type="text" id="n" placeholder="Name">
+        <input type="text" id="p" placeholder="Phone">
+        <input type="email" id="e" placeholder="Email">
+        <button type="button" onclick="save()">Add Contact</button>
+    </form>
+    <div id="list"></div>
+
+    <script>
+        const URL = '/contacts';
+        function load() {
+            fetch(URL).then(r => r.json()).then(data => {
+                let h = '';
+                data.forEach(c => {
+                    h += `<div class="contact"><b>${c.name}</b> (${c.phone}) <span class="del" onclick="remove(${c.id})">Delete</span></div>`;
+                });
+                document.getElementById('list').innerHTML = h;
+            });
+        }
+        function save() {
+            const data = { name: document.getElementById('n').value, phone: document.getElementById('p').value, email: document.getElementById('e').value };
+            fetch(URL, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) }).then(() => load());
+        }
+        function remove(id) { fetch(URL + '/' + id, { method: 'DELETE' }).then(() => load()); }
+        load();
+    </script>
+</body>
+</html>

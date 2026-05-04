@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="results.xsd">
+  <Student>
+    <RollNo>101</RollNo>
+    <Name>Alice</Name>
+    <Subject>Math</Subject>
+    <MarksObtained>85</MarksObtained>
+    <Grade>A</Grade>
+  </Student>
+  <Student>
+    <RollNo>102</RollNo>
+    <Name>Bob</Name>
+    <Subject>Science</Subject>
+    <MarksObtained>60</MarksObtained>
+    <Grade>C</Grade>
+  </Student>
+  <Student>
+    <RollNo>103</RollNo>
+    <Name>Charlie</Name>
+    <Subject>English</Subject>
+    <MarksObtained>45</MarksObtained>
+    <Grade>D</Grade>
+  </Student>
+  <Student>
+    <RollNo>104</RollNo>
+    <Name>David</Name>
+    <Subject>History</Subject>
+    <MarksObtained>92</MarksObtained>
+    <Grade>A</Grade>
+  </Student>
+  <Student>
+    <RollNo>105</RollNo>
+    <Name>Eve</Name>
+    <Subject>Math</Subject>
+    <MarksObtained>72</MarksObtained>
+    <Grade>B</Grade>
+  </Student>
+</Results>

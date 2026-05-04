@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .p-box { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+        .update { background: #f9f9f9; padding: 15px; border: 1px dashed #999; }
+    </style>
+</head>
+<body>
+    <h2>Products API</h2>
+    <div id="plist"></div>
+
+    <div class="update">
+        <h4>Update Product</h4>
+        <input type="number" id="id" placeholder="ID">
+        <input type="number" id="pr" placeholder="Price">
+        <input type="number" id="st" placeholder="Stock">
+        <button onclick="upd()">Update Now</button>
+        <p id="err" style="color:red"></p>
+    </div>
+
+    <script>
+        const API = '/products';
+        function load() {
+            fetch(API).then(r => r.json()).then(data => {
+                let h = '';
+                data.forEach(p => h += `<div class="p-box">ID: ${p.id} | ${p.name} - $${p.price} (Stock: ${p.stock})</div>`);
+                document.getElementById('plist').innerHTML = h;
+            });
+        }
+        function upd() {
+            const id = document.getElementById('id').value;
+            const body = { price: document.getElementById('pr').value, stock: document.getElementById('st').value };
+            fetch(API + '/' + id, { method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body) })
+            .then(r => {
+                if(r.status === 404) document.getElementById('err').innerText = "Not Found!";
+                else { document.getElementById('err').innerText = ""; load(); }
+            });
+        }
+        load();
+    </script>
+</body>
+</html>

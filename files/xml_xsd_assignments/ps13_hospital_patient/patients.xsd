@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Hospital">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Patient" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PatientID" type="xs:string"/>
+              <xs:element name="Name" type="xs:string"/>
+              <xs:element name="Age">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="120"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BloodGroup">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="A+"/>
+                    <xs:enumeration value="A-"/>
+                    <xs:enumeration value="B+"/>
+                    <xs:enumeration value="B-"/>
+                    <xs:enumeration value="O+"/>
+                    <xs:enumeration value="O-"/>
+                    <xs:enumeration value="AB+"/>
+                    <xs:enumeration value="AB-"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AdmissionDate" type="xs:date"/>
+              <xs:element name="DoctorAssigned" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

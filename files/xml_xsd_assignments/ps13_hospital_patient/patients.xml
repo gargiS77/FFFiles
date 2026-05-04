@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Hospital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="patients.xsd">
+  <Patient>
+    <PatientID>P001</PatientID>
+    <Name>John Smith</Name>
+    <Age>45</Age>
+    <BloodGroup>A+</BloodGroup>
+    <AdmissionDate>2023-10-01</AdmissionDate>
+    <DoctorAssigned>Dr. Adams</DoctorAssigned>
+  </Patient>
+  <Patient>
+    <PatientID>P002</PatientID>
+    <Name>Mary Jones</Name>
+    <Age>30</Age>
+    <BloodGroup>O-</BloodGroup>
+    <AdmissionDate>2023-10-02</AdmissionDate>
+    <DoctorAssigned>Dr. Clark</DoctorAssigned>
+  </Patient>
+  <Patient>
+    <PatientID>P003</PatientID>
+    <Name>Robert Brown</Name>
+    <Age>65</Age>
+    <BloodGroup>B+</BloodGroup>
+    <AdmissionDate>2023-10-03</AdmissionDate>
+    <DoctorAssigned>Dr. Adams</DoctorAssigned>
+  </Patient>
+  <Patient>
+    <PatientID>P004</PatientID>
+    <Name>Linda White</Name>
+    <Age>12</Age>
+    <BloodGroup>AB+</BloodGroup>
+    <AdmissionDate>2023-10-04</AdmissionDate>
+    <DoctorAssigned>Dr. Smith</DoctorAssigned>
+  </Patient>
+</Hospital>

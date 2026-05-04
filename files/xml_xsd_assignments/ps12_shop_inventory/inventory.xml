@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Inventory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="inventory.xsd">
+  <Product>
+    <ProductID>101</ProductID>
+    <Name>Mobile Phone</Name>
+    <Category>Electronics</Category>
+    <Stock>50</Stock>
+    <Price>299.99</Price>
+  </Product>
+  <Product>
+    <ProductID>102</ProductID>
+    <Name>T-Shirt</Name>
+    <Category>Clothing</Category>
+    <Stock>100</Stock>
+    <Price>15.00</Price>
+  </Product>
+  <Product>
+    <ProductID>103</ProductID>
+    <Name>Apple</Name>
+    <Category>Food</Category>
+    <Stock>200</Stock>
+    <Price>1.50</Price>
+  </Product>
+  <Product>
+    <ProductID>104</ProductID>
+    <Name>Laptop</Name>
+    <Category>Electronics</Category>
+    <Stock>20</Stock>
+    <Price>800.00</Price>
+  </Product>
+  <Product>
+    <ProductID>105</ProductID>
+    <Name>Jeans</Name>
+    <Category>Clothing</Category>
+    <Stock>0</Stock>
+    <Price>40.00</Price>
+  </Product>
+</Inventory>

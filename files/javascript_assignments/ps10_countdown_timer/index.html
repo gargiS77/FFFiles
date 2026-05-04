@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Timer</title>
+  <style>
+    body { font-family: Arial; padding: 20px; text-align: center; background-color: #eef2f3;}
+    .timer-box { background: white; padding: 30px; width: 300px; margin: 0 auto; border: 2px solid #333; border-radius: 10px; }
+    #display { font-size: 50px; margin: 20px 0; font-weight: bold; color: #333; }
+    button { padding: 10px 15px; font-size: 16px; margin: 5px; cursor: pointer; }
+    input { padding: 5px; font-size: 16px; width: 60px; }
+  </style>
+</head>
+<body>
+
+<div class="timer-box">
+  <h2>Countdown Timer</h2>
+  <label>Minutes:</label>
+  <input type="number" id="minInput" value="5" min="1">
+  <br>
+
+  <div id="display">00:00</div>
+
+  <button onclick="startTimer()">Start</button>
+  <button onclick="pauseTimer()">Pause</button>
+  <button onclick="resetTimer()">Reset</button>
+</div>
+
+<script>
+  var timeleft = 0;
+  var timerObj = null;
+  var isRunning = false;
+
+  function updateDisplay() {
+    var m = Math.floor(timeleft / 60);
+    var s = timeleft % 60;
+    
+    // add zero if less than 10 for MM:SS format
+    var mStr = "";
+    if (m < 10) { mStr = "0" + m; } else { mStr = m; }
+    
+    var sStr = "";
+    if (s < 10) { sStr = "0" + s; } else { sStr = s; }
+    
+    document.getElementById("display").innerHTML = mStr + ":" + sStr;
+  }
+
+  function countDown() {
+    if (timeleft > 0) {
+      timeleft--;
+      updateDisplay();
+    } else {
+      clearInterval(timerObj);
+      isRunning = false;
+      alert("Time is over!");
+    }
+  }
+
+  function startTimer() {
+    if (isRunning == true) {
+      return; // prevent multiple clicks
+    }
+
+    // If starting from 0, get minutes from input
+    if (timeleft == 0) {
+      var mins = document.getElementById("minInput").value;
+      if (mins == "" || mins <= 0) {
+        alert("Please enter valid minutes");
+        return;
+      }
+      timeleft = mins * 60;
+      updateDisplay();
+    }
+
+    timerObj = setInterval(countDown, 1000);
+    isRunning = true;
+  }
+
+  function pauseTimer() {
+    clearInterval(timerObj);
+    isRunning = false;
+  }
+
+  function resetTimer() {
+    clearInterval(timerObj);
+    isRunning = false;
+    timeleft = 0;
+    document.getElementById("display").innerHTML = "00:00";
+  }
+</script>
+
+</body>
+</html>

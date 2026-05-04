@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="library.xsd">
+  <Book>
+    <BookID>B101</BookID>
+    <Title>Learn HTML</Title>
+    <Author>John Doe</Author>
+    <Genre>Education</Genre>
+    <PublishedYear>2021</PublishedYear>
+    <Price>25.50</Price>
+  </Book>
+  <Book>
+    <BookID>B102</BookID>
+    <Title>CSS Basics</Title>
+    <Author>Jane Smith</Author>
+    <Genre>Education</Genre>
+    <PublishedYear>2019</PublishedYear>
+    <Price>30.00</Price>
+  </Book>
+  <Book>
+    <BookID>B103</BookID>
+    <Title>Harry Potter</Title>
+    <Author>J.K. Rowling</Author>
+    <Genre>Fantasy</Genre>
+    <PublishedYear>1997</PublishedYear>
+    <Price>15.99</Price>
+  </Book>
+  <Book>
+    <BookID>B104</BookID>
+    <Title>JavaScript Guide</Title>
+    <Author>Mike Johnson</Author>
+    <Genre>Programming</Genre>
+    <PublishedYear>2023</PublishedYear>
+    <Price>45.00</Price>
+  </Book>
+  <Book>
+    <BookID>B105</BookID>
+    <Title>The Hobbit</Title>
+    <Author>J.R.R. Tolkien</Author>
+    <Genre>Fantasy</Genre>
+    <PublishedYear>1937</PublishedYear>
+    <Price>20.50</Price>
+  </Book>
+</Library>

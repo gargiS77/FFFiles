@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz App</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background-color: #f4f4f4;}
+    .quiz-box { border: 1px solid #ccc; padding: 20px; width: 400px; background-color: white; margin: 0 auto;}
+    .options { margin-top: 10px; }
+    .option { margin-bottom: 5px; }
+    button { padding: 5px 10px; margin-top: 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<div class="quiz-box" id="quiz-container">
+  <h3 id="question-text">Question goes here</h3>
+  <div class="options" id="options-box">
+    <!-- options will go here -->
+  </div>
+  <button onclick="nextQuestion()">Next</button>
+</div>
+
+<div id="result-box" style="display:none;" class="quiz-box">
+  <h3>Quiz Finished!</h3>
+  <p id="score-text"></p>
+</div>
+
+<script>
+  var questions = [
+    { q: "What is 2 + 2?", options: ["3", "4", "5", "6"], answer: 1 },
+    { q: "What is the capital of France?", options: ["Berlin", "London", "Paris", "Rome"], answer: 2 },
+    { q: "Which language is used for web structure?", options: ["Python", "HTML", "C++", "Java"], answer: 1 },
+    { q: "The sun rises in the?", options: ["East", "West", "North", "South"], answer: 0 },
+    { q: "How many days are there in a week?", options: ["5", "6", "7", "8"], answer: 2 }
+  ];
+
+  var currentQuestion = 0;
+  var score = 0;
+
+  function loadQuestion() {
+    var qObj = questions[currentQuestion];
+    document.getElementById("question-text").innerHTML = (currentQuestion + 1) + ". " + qObj.q;
+    
+    var optionsHtml = "";
+    for (var i = 0; i < qObj.options.length; i++) {
+      optionsHtml += '<div class="option"><input type="radio" name="option" value="' + i + '"> ' + qObj.options[i] + '</div>';
+    }
+    document.getElementById("options-box").innerHTML = optionsHtml;
+  }
+
+  function nextQuestion() {
+    var radios = document.getElementsByName("option");
+    var selected = -1;
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        selected = parseInt(radios[i].value);
+      }
+    }
+
+    if (selected === -1) {
+      alert("Please select an answer!");
+      return;
+    }
+
+    if (selected === questions[currentQuestion].answer) {
+      score++;
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+      loadQuestion();
+    } else {
+      document.getElementById("quiz-container").style.display = "none";
+      document.getElementById("result-box").style.display = "block";
+      
+      var msg = "Your final score is " + score + " out of " + questions.length + ".<br>";
+      if (score >= 3) {
+        msg += "Great job!";
+      } else {
+        msg += "Better luck next time!";
+      }
+      document.getElementById("score-text").innerHTML = msg;
+    }
+  }
+
+  // Load first question when page loads
+  loadQuestion();
+</script>
+
+</body>
+</html>

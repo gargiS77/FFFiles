@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student API</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        li { padding: 10px; border: 1px solid #eee; margin-top: 5px; }
+        .form { background: #f4f4f4; padding: 15px; }
+    </style>
+</head>
+<body>
+    <h2>Student Management</h2>
+    <div class="form">
+        <input type="text" id="n" placeholder="Name">
+        <input type="email" id="e" placeholder="Email">
+        <button onclick="add()">Add Student</button>
+    </div>
+    <ul id="list"></ul>
+
+    <script>
+        const API = '/students';
+        function load() {
+            fetch(API).then(r => r.json()).then(data => {
+                const l = document.getElementById('list');
+                l.innerHTML = '';
+                data.forEach(s => {
+                    l.innerHTML += `<li>${s.name} (${s.email}) <button onclick="upd(${s.id})">Update Email</button></li>`;
+                });
+            });
+        }
+        function add() {
+            const name = document.getElementById('n').value;
+            const email = document.getElementById('e').value;
+            fetch(API, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({name, email}) }).then(() => load());
+        }
+        function upd(id) {
+            const email = prompt("New Email?");
+            if(email) fetch(API + '/' + id, { method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email}) }).then(() => load());
+        }
+        load();
+    </script>
+</body>
+</html>

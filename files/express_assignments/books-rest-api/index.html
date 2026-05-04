@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: auto; padding: 20px; }
+        .book-item { border-bottom: 1px solid #ddd; padding: 10px; display: flex; justify-content: space-between; }
+        .form-box { background: #f4f4f4; padding: 15px; margin-top: 20px; }
+        input { display: block; width: 90%; margin-bottom: 10px; padding: 8px; }
+        button { background: green; color: white; border: none; padding: 8px 12px; cursor: pointer; }
+        .del-btn { background: red; }
+    </style>
+</head>
+<body>
+    <h2>Books Collection</h2>
+    <div id="bookList">Loading books...</div>
+
+    <div class="form-box">
+        <h3>Add a New Book</h3>
+        <input type="text" id="title" placeholder="Book Title">
+        <input type="text" id="author" placeholder="Author Name">
+        <button onclick="addBook()">Add Book</button>
+    </div>
+
+    <script>
+        const API_URL = '/books';
+
+        function loadBooks() {
+            fetch(API_URL)
+                .then(res => res.json())
+                .then(books => {
+                    const list = document.getElementById('bookList');
+                    list.innerHTML = '';
+                    books.forEach(b => {
+                        list.innerHTML += `
+                            <div class="book-item">
+                                <span><b>${b.title}</b> by ${b.author}</span>
+                                <button class="del-btn" onclick="deleteBook(${b.id})">Delete</button>
+                            </div>`;
+                    });
+                });
+        }
+
+        function addBook() {
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            
+            fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, author })
+            }).then(() => {
+                document.getElementById('title').value = '';
+                document.getElementById('author').value = '';
+                loadBooks();
+            });
+        }
+
+        function deleteBook(id) {
+            fetch(`${API_URL}/${id}`, { method: 'DELETE' })
+                .then(() => loadBooks());
+        }
+
+        loadBooks();
+    </script>
+</body>
+</html>

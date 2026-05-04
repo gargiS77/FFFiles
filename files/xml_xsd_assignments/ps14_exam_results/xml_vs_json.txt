@@ -1,0 +1,25 @@
+Difference between XML and JSON
+
+1. Full Form:
+   - XML stands for Extensible Markup Language.
+   - JSON stands for JavaScript Object Notation.
+
+2. Syntax and Look:
+   - XML uses tags (like <name>John</name>), making it a bit lengthy.
+   - JSON uses key-value pairs (like {"name": "John"}), making it shorter and easier to read.
+
+3. File Size:
+   - XML is heavier because of opening and closing tags.
+   - JSON is lightweight and uses much less space.
+
+4. Parsing and Speed:
+   - XML parsing is a bit slow and complex.
+   - JSON parsing is very fast and native to JavaScript.
+
+5. Data Types:
+   - XML treats almost everything as text/string.
+   - JSON supports strings, numbers, arrays, and booleans natively.
+
+6. Usage:
+   - XML is commonly used in older enterprise systems and SOAP web services.
+   - JSON is the modern standard for web applications and REST APIs.

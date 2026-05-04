@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+    .header {
+      background-color: #222;
+      color: white;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+    .container {
+      display: flex;
+      max-width: 900px;
+      margin: 20px auto;
+      gap: 20px;
+      padding: 0 10px;
+    }
+    .main-blog {
+      width: 70%;
+      background: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+    .sidebar {
+      width: 30%;
+      background: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+    .blog-img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .sidebar li {
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px dashed #ccc;
+    }
+    .sidebar a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>My Coding Blog</h1>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Articles</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="main-blog">
+    <h2>Learning HTML and CSS with Flexbox</h2>
+    <p><strong>Author:</strong> Jane Smith | <strong>Date:</strong> Oct 15, 2023</p>
+    <img src="https://via.placeholder.com/600x300" alt="Blog Image" class="blog-img">
+    <p>This is my first blog post. Today we learned how to align elements side by side using Flexbox. It makes creating a main area and a sidebar very easy.</p>
+    <p>I also learned about the position sticky property which keeps the header at the top when scrolling down the page. Very useful!</p>
+  </div>
+
+  <div class="sidebar">
+    <h3>Recent Posts</h3>
+    <ul>
+      <li><a href="#">How to learn HTML</a></li>
+      <li><a href="#">CSS basics for beginners</a></li>
+      <li><a href="#">What is Flexbox?</a></li>
+      <li><a href="#">Top 10 web design tips</a></li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

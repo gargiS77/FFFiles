@@ -1,0 +1,39 @@
+Deployment Documentation Report
+
+(a) App Description and Routes
+This is a simple backend web application built using Node.js and Express.js.
+It handles basic web requests and returns JSON data.
+
+The application has the following routes:
+- GET / : Shows a "Hello World" welcome message.
+- GET /status : Returns a JSON object showing that the server is "running" along with the current time.
+- GET /info : Returns student details like Name and PRN number in JSON format.
+
+(b) Local Setup Steps
+To run this application on your local computer, follow these steps:
+- Open your terminal and go to the project folder.
+- Type "npm install" to download required packages like Express.
+- If you need environment variables, create a file named ".env" and add them there (for example, PORT=3000).
+- Type "node server.js" to start the server. 
+- You will see a message saying "Server is running".
+
+(c) Deployment Steps on Render
+To make the application available on the internet, we deploy it on Render:
+- Step 1: Create an account on Render.com using your email or GitHub.
+- Step 2: Make sure your code is uploaded to a GitHub repository.
+- Step 3: On Render, click "New" and select "Web Service".
+- Step 4: Choose your GitHub repository from the list.
+- Step 5: In the settings, set the Build Command to "npm install".
+- Step 6: Set the Start Command to "node server.js".
+- Step 7: Click the Deploy button. Wait a few minutes for the build to finish.
+  [Insert Screenshot of successful deployment here]
+
+(d) How to Set PORT Environment Variable
+When deploying, the server needs to know which port to listen on. Render assigns this automatically, but we have to configure it.
+- In the Render dashboard for your web service, click on "Environment".
+- Click "Add Environment Variable".
+- For Key, type "PORT".
+- For Value, type "3000" or leave it blank if Render provides one automatically.
+- Save the changes.
+- In your code, make sure you write: const PORT = process.env.PORT || 3000;
+  [Insert Screenshot of Environment Variables here]

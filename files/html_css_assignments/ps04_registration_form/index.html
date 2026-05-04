@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      padding: 20px;
+    }
+    .form-box {
+      width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="date"]:focus,
+    select:focus {
+      border-color: #0066cc;
+      outline: none;
+    }
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background-color: #218838;
+    }
+    .inline-label {
+      display: inline;
+      font-weight: normal;
+      margin-right: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-box">
+  <h2>Student Registration Form</h2>
+  <form action="#" method="post">
+    
+    <div class="form-group">
+      <label>Full Name:</label>
+      <input type="text" name="fullname" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email Address:</label>
+      <input type="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number (10 digits):</label>
+      <input type="tel" name="phone" pattern="[0-9]{10}" title="Please enter exactly 10 digits" required>
+    </div>
+
+    <div class="form-group">
+      <label>Date of Birth:</label>
+      <input type="date" name="dob" required>
+    </div>
+
+    <div class="form-group">
+      <label>Select Course:</label>
+      <select name="course" required>
+        <option value="">-- Choose a course --</option>
+        <option value="cs">Computer Science</option>
+        <option value="it">Information Technology</option>
+        <option value="mech">Mechanical Engineering</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Gender:</label>
+      <input type="radio" name="gender" value="Male" required> <label class="inline-label">Male</label>
+      <input type="radio" name="gender" value="Female"> <label class="inline-label">Female</label>
+    </div>
+
+    <div class="form-group">
+      <label>Technical Skills:</label>
+      <input type="checkbox" name="skills" value="HTML"> <label class="inline-label">HTML</label>
+      <input type="checkbox" name="skills" value="CSS"> <label class="inline-label">CSS</label>
+      <input type="checkbox" name="skills" value="JS"> <label class="inline-label">JavaScript</label>
+      <input type="checkbox" name="skills" value="Python"> <label class="inline-label">Python</label>
+    </div>
+
+    <button type="submit" class="btn">Register Student</button>
+  </form>
+</div>
+
+</body>
+</html>
