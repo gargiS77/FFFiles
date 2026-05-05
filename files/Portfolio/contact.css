@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #f2f4f7;
+  color: #1f2933;
+}
+
+/* NAV */
+nav {
+  background: #0f2a44;
+  padding: 15px 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav h2 {
+  color: white;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* CONTACT LAYOUT */
+.contact-section {
+  padding: 80px 12%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.contact-left h1 {
+  font-size: 2.5rem;
+}
+
+.underline {
+  width: 50px;
+  height: 3px;
+  background: #b00020;
+  margin: 10px 0 20px;
+}
+
+.contact-left p {
+  margin-bottom: 12px;
+  color: #4b5563;
+}
+
+/* FORM CARD */
+.contact-right form {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+form input, form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #b00020;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #8a0018;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+#contactBG{
+    background-color: rgb(255, 146, 127);
+}
