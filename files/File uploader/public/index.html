@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudStash - File Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Auth Section -->
+        <div id="auth-section" class="glass-panel active">
+            <div class="auth-box">
+                <div class="brand">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <h2>CloudStash</h2>
+                </div>
+                
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                    <button class="tab-btn" onclick="switchTab('signup')">Sign Up</button>
+                </div>
+
+                <form id="auth-form">
+                    <div class="input-group">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary" id="auth-submit-btn">Login</button>
+                </form>
+                <div id="auth-message"></div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="glass-panel">
+            <header class="dashboard-header">
+                <div class="brand">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <h2>CloudStash</h2>
+                </div>
+                <div class="user-info">
+                    <span id="welcome-message">Hello, User</span>
+                    <button class="btn-secondary" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                </div>
+            </header>
+
+            <main class="dashboard-content">
+                <div class="upload-area">
+                    <h3>Upload New File</h3>
+                    <form id="upload-form">
+                        <div class="file-drop-zone">
+                            <i class="fa-solid fa-cloud-upload-alt"></i>
+                            <p>Drag & Drop your file here or Browse</p>
+                            <input type="file" id="file-input" required>
+                        </div>
+                        <button type="submit" class="btn-primary upload-btn" id="upload-btn">
+                            <i class="fa-solid fa-upload"></i> Upload to Cloud
+                        </button>
+                    </form>
+                    <div id="upload-message"></div>
+                </div>
+
+                <div class="files-area">
+                    <h3>Your Files</h3>
+                    <div class="files-list" id="files-list">
+                        <!-- Files injected by JS -->
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

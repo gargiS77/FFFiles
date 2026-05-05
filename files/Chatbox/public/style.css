@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#join-container {
+    text-align: center;
+}
+
+#join-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#join-container input, #chat-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+#join-container button, #chat-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#join-container button:hover, #chat-container button:hover {
+    background-color: #006bce;
+}
+
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    padding: 0;
+}
+
+.chat-header {
+    background-color: #0084ff;
+    color: white;
+    padding: 15px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.self {
+    background-color: #0084ff;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.message.other {
+    background-color: #e4e6eb;
+    color: black;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.message .username {
+    font-size: 0.8em;
+    margin-bottom: 3px;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.notification {
+    align-self: center;
+    background-color: transparent;
+    color: #888;
+    font-size: 0.85em;
+    margin: 5px 0;
+}
+
+.chat-input-container {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input-container input {
+    margin-bottom: 0;
+}
+
+.chat-input-container button {
+    width: auto;
+    padding: 12px 20px;
+}

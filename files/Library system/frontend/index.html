@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Library System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Welcome to your Library Dashboard</h2>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+
+    <!-- Section: Form to Add a New Book -->
+    <div class="book-form">
+      <h3>Add a New Book</h3>
+      <form id="addBookForm">
+        <label for="bookTitle">Title</label>
+        <input type="text" id="bookTitle" required>
+        
+        <label for="bookAuthor">Author</label>
+        <input type="text" id="bookAuthor" required>
+        
+        <label for="bookGenre">Genre</label>
+        <input type="text" id="bookGenre" required>
+
+        <label for="bookYear">Year</label>
+        <input type="number" id="bookYear" required>
+        
+        <button type="submit">Add Book</button>
+      </form>
+    </div>
+
+    <!-- Section: Display the Books List -->
+    <h3>My Book Collection</h3>
+    <div id="bookList">
+      <p>Loading books...</p>
+      <!-- JavaScript will inject the books right here -->
+    </div>
+  </div>
+
+  <!-- Link the logic script designed specifically for the dashboard -->
+  <script src="app.js"></script>
+</body>
+</html>
